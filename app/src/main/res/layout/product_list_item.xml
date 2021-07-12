@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/product_list_item_height"
+    android:layout_margin="3dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="0dp">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/button_bg_transparent_selector"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding_medium">
+
+        <View
+            android:id="@+id/icon"
+            android:layout_width="@dimen/product_list_icon_size"
+            android:layout_height="@dimen/product_list_icon_size"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/product_list_icon_padding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            tools:background="#fe6">
+
+            <TextView
+                android:id="@+id/label"
+                style="@style/TextView.Label.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="BBQ Bacon Cheeseburger"
+                tools:textColor="@color/red_cinnabar" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/border_scarlet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:srcCompat="@drawable/grid_item_border_red"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/border_amber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:srcCompat="@drawable/grid_item_border_orange"
+            tools:visibility="visible" />
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextView.XLarge.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:text="@string/checkout_with_credit"
+        android:textAllCaps="true"
+        android:textColor="@color/blue_atlantis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/field_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <TextView
+            android:id="@+id/label_credit_amount"
+            style="@style/TextView.XHeader.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            tools:text="$25.00" />
+
+        <com.stripe.android.view.CardInputWidget
+            android:id="@+id/credit_card_input_widget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/test_numbers_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pay_with_credit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/field_container">
+
+        <TextView
+            style="@style/TextView.Monospace.Bold"
+            android:layout_width="match_parent"
+            android:gravity="end"
+            android:text="Visa: 4242 4242 4242 4242" />
+
+        <TextView
+            style="@style/TextView.Monospace.Bold"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="end"
+            android:text="Visa (Debit): 4000 0566 5566 5556" />
+
+        <TextView
+            style="@style/TextView.Monospace.Bold"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="end"
+            android:text="Mastercard: 5555 5555 5555 4444" />
+
+        <TextView
+            style="@style/TextView.Monospace.Bold"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="end"
+            android:text="Discover: 6011 1111 1111 1117" />
+
+        <TextView
+            style="@style/TextView.Monospace.Bold"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="end"
+            android:text="Amex: 3782 822463 10005" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_pay_with_credit"
+        style="@style/Button.Blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="64dp"
+        android:text="@string/checkout_pay_credit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
