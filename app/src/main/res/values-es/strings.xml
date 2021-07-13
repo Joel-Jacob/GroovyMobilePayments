@@ -129,4 +129,8 @@
         <item>Usando Machine Learning&#8230;</item>
         <item>Contando frijoles&#8230;</item>
     </string-array>
+    <string name="alert_title_under_construction">BAJO CONSTRUCCIÓN</string>
+    <string name="alert_body">Esta área de la aplicación aún está en construcción. Siéntase libre de demostrar sus habilidades y desarrollarlas.</string>
+    <string name="alert_neutral_cta_aknowledged">ADMITIDA</string>
+    <string name="item_image">Imagen del artículo</string>
 </resources>

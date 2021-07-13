@@ -15,15 +15,26 @@
         android:layout_gravity="center_vertical"
         android:background="@drawable/button_bg_transparent_selector"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/padding_medium"
+        android:paddingStart="@dimen/dp_0"
         android:paddingEnd="@dimen/padding_medium">
 
-        <View
+        <ImageView
             android:id="@+id/icon"
             android:layout_width="@dimen/product_list_icon_size"
             android:layout_height="@dimen/product_list_icon_size"
             android:layout_gravity="center_vertical"
-            android:padding="@dimen/product_list_icon_padding" />
+            android:padding="@dimen/product_list_icon_padding"
+            android:contentDescription="@string/item_image"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            tools:background="@color/blue_dodger_blue"/>
+
+        <View
+            android:layout_width="@dimen/dp_2"
+            android:layout_height="@dimen/product_list_icon_size"
+            android:background="@color/gray_silver"
+            android:layout_margin="@dimen/dp_10"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,6 +50,14 @@
                 android:layout_height="wrap_content"
                 tools:text="BBQ Bacon Cheeseburger"
                 tools:textColor="@color/red_cinnabar" />
+
+            <TextView
+                android:id="@+id/secondary_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_down_pour"
+                tools:text="$12.23 | bbq, bacon, letuce, tomatoes, mayo, buns"/>
+
         </LinearLayout>
     </LinearLayout>
 

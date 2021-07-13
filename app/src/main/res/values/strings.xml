@@ -117,6 +117,8 @@
     <string name="alert_title_under_construction">UNDER CONSTRUCTION</string>
     <string name="alert_body">This area of the application is still under construction. Feel free to demonstrate your skills and build it.</string>
     <string name="alert_neutral_cta_aknowledged">ACKNOWLEDGED</string>
+    <string name="secondary_label_text" translatable="false">%s | %s</string>
+    <string name="item_image">Item Image</string>
 
     <!-- Progress / Tasks -->
     <string-array name="progress_dialog_messages">

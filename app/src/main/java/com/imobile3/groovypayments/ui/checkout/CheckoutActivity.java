@@ -1,5 +1,6 @@
 package com.imobile3.groovypayments.ui.checkout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import com.imobile3.groovypayments.logging.LogHelper;
 import com.imobile3.groovypayments.manager.CartManager;
 import com.imobile3.groovypayments.network.WebServiceManager;
 import com.imobile3.groovypayments.network.domainobjects.PaymentResponseHelper;
+import com.imobile3.groovypayments.rules.CurrencyRules;
 import com.imobile3.groovypayments.ui.BaseActivity;
 import com.imobile3.groovypayments.ui.adapter.PaymentTypeListAdapter;
 import com.imobile3.groovypayments.ui.dialog.ProgressDialog;
@@ -36,6 +38,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
@@ -400,5 +403,79 @@ public class CheckoutActivity extends BaseActivity {
         startActivity(new Intent(this, CheckoutCompleteActivity.class));
         // Remove this activity from the stack.
         finish();
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    public void keypadButtonClick(View v){
+        String baseCashValue = mLblCashAmount.getText().toString();
+        String removedDollarSignValue = baseCashValue.replace("$", "");
+        String removedCommaSignValue = removedDollarSignValue.replace(",", "");
+        String pennyValue = removedCommaSignValue.replace(".", "");
+        String finalValue;
+
+        switch (v.getId()){
+            case R.id.one_button:
+                finalValue = pennyValue + "1";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.two_button:
+                finalValue = pennyValue + "2";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.three_button:
+                finalValue = pennyValue + "3";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.four_button:
+                finalValue = pennyValue + "4";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.five_button:
+                finalValue = pennyValue + "5";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.six_button:
+                finalValue = pennyValue + "6";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.seven_button:
+                finalValue = pennyValue + "7";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.eight_button:
+                finalValue = pennyValue + "8";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.nine_button:
+                finalValue = pennyValue + "9";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.double_zero_button:
+                finalValue = pennyValue + "00";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.zero_button:
+                finalValue = pennyValue + "0";
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+
+            case R.id.backspace_button:
+                finalValue = pennyValue.substring(0, pennyValue.length()-1);
+                mLblCashAmount.setText(new CurrencyRules().getFormattedAmount(Long.parseLong(finalValue), Locale.US));
+                break;
+            default:
+                break;
+        }
+
     }
 }

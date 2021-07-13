@@ -1,12 +1,16 @@
 package com.imobile3.groovypayments.ui.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.imobile3.groovypayments.R;
+import com.imobile3.groovypayments.data.enums.GroovyColor;
+import com.imobile3.groovypayments.data.enums.GroovyIcon;
 import com.imobile3.groovypayments.data.model.Product;
 import com.imobile3.groovypayments.utils.StateListHelper;
 
@@ -16,8 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductListAdapter
         extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
@@ -55,6 +61,10 @@ public class ProductListAdapter
         holder.label.setText(item.getName());
         holder.label.setTextColor(
                 StateListHelper.getTextColorSelector(mContext, R.color.black_space));
+        String cost = NumberFormat.getCurrencyInstance(Locale.US).format(item.getUnitPrice() / 100.0);
+        holder.secondaryLabel.setText(String.format(mContext.getString(R.string.secondary_label_text), cost, item.getNote()));
+        holder.icon.setImageDrawable(mContext.getDrawable(GroovyIcon.fromId(item.getIconId()).drawableRes));
+        holder.icon.setBackground(mContext.getDrawable(GroovyColor.fromId(item.getColorId()).colorRes));
     }
 
     @Override
@@ -65,11 +75,15 @@ public class ProductListAdapter
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ViewGroup container;
         TextView label;
+        TextView secondaryLabel;
+        ImageView icon;
 
         ViewHolder(View itemView) {
             super(itemView);
             container = itemView.findViewById(R.id.container);
             label = itemView.findViewById(R.id.label);
+            secondaryLabel = itemView.findViewById(R.id.secondary_label);
+            icon = itemView.findViewById(R.id.icon);
             container.setOnClickListener(this);
         }
 
